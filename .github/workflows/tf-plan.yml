@@ -23,13 +23,11 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v6
         with:
-          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-          aws-region: ${{vars.AWS_REGION}}
-          role-session-name: TerraformPlanSession
-          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::095953026768:role/GitHubActionsTerraform
+          aws-region: eu-west-2
 
       - name: Terraform plan
         id: plan
