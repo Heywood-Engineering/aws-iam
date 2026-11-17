@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   tf-apply:
-    if: ${{ startsWith(github.ref, 'refs/heads/feature/') }}
+    if: ${{ startsWith(github.event.pull_request.head.ref, 'feature/') }}
     name: Terraform Apply
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
