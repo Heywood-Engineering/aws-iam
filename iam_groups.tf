@@ -12,7 +12,3 @@ resource "aws_iam_group" "tenant_groups_write" {
   name     = "IAM-${each.value}-ReadWrite"
 }
 
-resource "aws_iam_group" "tenant_groups_break_glass" {
-  for_each = toset(var.tenants)
-  name     = "IAM-${each.value}-BreakGlass"
-}
