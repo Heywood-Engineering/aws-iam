@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   plan:
+    if: startsWith(github.head_ref, 'feature/')
     name: Terraform Plan
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
