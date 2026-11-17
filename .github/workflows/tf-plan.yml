@@ -35,7 +35,6 @@ jobs:
         id: plan
         uses: dflook/terraform-plan@v1
         env:
-          add_github_comment: changes-only
           TF_PLAN_COLLAPSE_LEVEL: 30
 
       - name: Terraform Plan Status
