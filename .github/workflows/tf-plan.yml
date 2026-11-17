@@ -3,7 +3,7 @@ name: Terraform Plan
 on:
   pull_request:
     branches:
-      - "feature/**"
+      - main
 
 permissions:
   id-token: write # OIDC authentication
@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   plan:
+    if: startsWith(github.head_ref, 'feature/')
     name: Terraform Plan
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
