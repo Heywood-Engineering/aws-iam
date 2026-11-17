@@ -9,6 +9,13 @@ permissions:
   contents: read
 
 jobs:
+  display-event:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
   tf-apply:
     name: Terraform Apply
     env:
@@ -18,12 +25,6 @@ jobs:
       run:
         working-directory: .
     steps:
-      - name: Display ref
-        run: echo ${{ github.head_ref }}
-      - name: Display PR head ref
-        run: echo ${{github.event.pull_request.head_ref}}
-      - name: Display Pull Request
-        run: echo ${{github.event.pull_request}}
       - name: Checkout code
         uses: actions/checkout@v4
         with:
