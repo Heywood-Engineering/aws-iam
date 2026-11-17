@@ -11,3 +11,8 @@ resource "aws_iam_group" "tenant_groups" {
   for_each = toset(var.tenants)
   name     = "IAM-${each.value}-ReadWrite"
 }
+
+resource "aws_iam_group" "tenant_groups" {
+  for_each = toset(var.tenants)
+  name     = "IAM-${each.value}-BreakGlass"
+}
