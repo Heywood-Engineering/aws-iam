@@ -11,4 +11,3 @@ resource "aws_iam_group" "tenant_groups_write" {
   for_each = toset(var.tenants)
   name     = "IAM-${each.value}-ReadWrite"
 }
-
