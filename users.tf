@@ -1,7 +1,6 @@
 variable "users" {
   type = set(object({
     name   = string
-    email  = string
     tenant = string
   }))
 
