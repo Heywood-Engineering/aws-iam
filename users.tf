@@ -7,13 +7,11 @@ variable "users" {
 
   default = [{
     name   = "user1"
-    email  = "user1@heywood.org"
     tenant = "police"
     },
     {
       name   = "user2"
-      email  = "user2@heywood.org"
-      tenant = "police"
+      tenant = "security"
     }
   ]
 }
